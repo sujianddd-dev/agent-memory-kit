@@ -1,0 +1,2 @@
+{"text":"Exit code 0 from a child process does not prove the side effect happened; check a receipt.","metadata":{"scene":"working","layer":"experience","category":"protocols","status":"active"}}
+{"text":"Read child process output as UTF-8 explicitly; the ANSI code page breaks CJK JSON.","metadata":{"scene":"working","layer":"experience","category":"tools","status":"active"}}
