@@ -1,5 +1,8 @@
 # agent-memory-kit
 
+[![ci](https://github.com/sujianddd-dev/agent-memory-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/sujianddd-dev/agent-memory-kit/actions/workflows/ci.yml)
+
+
 Two-layer memory for AI coding agents, extracted from a working deployment:
 
 - **mem0** holds atomic facts (preferences, decisions, project state) behind a
@@ -80,3 +83,4 @@ No credentials are stored in this repo.
 ## License
 
 MIT
+
