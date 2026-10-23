@@ -1,0 +1,30 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compile
+        run: python -m py_compile kit/*.py
+
+      - name: Ingest dry-run
+        run: python kit/ingest.py --input examples/queue.jsonl --ledger /tmp/ledger.jsonl --dry-run
+
+      - name: Obsidian note
+        run: |
+          python kit/obsidian_note.py --vault /tmp/vault --category protocols \
+            --title "CI smoke" --summary "smoke test note" --point "one point"
+          test -f "/tmp/vault/knowledge/protocols/$(date +%F)-CI-smoke.md"
+
+      - name: Suggestion helper dry-run
+        run: python kit/suggestion_to_issue.py --repo owner/name --title "x" --dry-run
